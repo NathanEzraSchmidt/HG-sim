@@ -1,0 +1,24 @@
+int enter_deck(int* deck);
+int get_tc(int* arr, int len);
+void print_arr_double(double* arr, int len);
+void print_arr(int* arr, int n);
+void print_arr_2(int* arr, int n);
+int sum(int* arr, int len);
+void shuffle(int* arr, int n);
+void get_deck(int* deck, int n);
+int has_bj(int* hand);
+int go_dealer(int* hand, int* deck, int len, int* deck_pos, int hit_17, int* dealer_len);
+void test_go_dealer();
+int compare_player_dealer(int* player, int len, int* dealer, int dealer_len, int no_bust);
+int get_hard_soft(int* player, int len);
+int get_rep_lens(int* arr_1, int* arr_2, int len_1);
+double get_banker_results(int* action_arr, int* action_arr_totals, int display, int hand_num, int amount_bet);
+int get_basic_strat(int* player, int n, int upcard, int split_allowed, int no_bust);
+void show_basic_strat();
+void reset_results(int result_lens[32], int* result_len, int* split_count);
+void split_aces(int result[32][32], int result_lens[32], int* result_len, int result_pos, int* split_count, int* deck, int* deck_pos, int m);
+void test_split_aces();
+void go_player(int result[32][32], int result_lens[32], int* result_len, int* split_count, int* deck, int* deck_pos, int m, int* player, int player_len, int* dealer);
+void test_go_player();
+double sim(int sims, int pen, int deck_num, double bj_pay, int* bj_bets, int hand_num, int bank_total_start, int debug);
+
