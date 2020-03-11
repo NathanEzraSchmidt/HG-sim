@@ -19,7 +19,7 @@ The sim executes basic strategy decisions for the players. This can be modified 
 
 # Use
 The program will ask the user for a few values for running the sim. See the screenshot examples for this. You should enter only integers and the players' bet sizes should be even numbers. If you don't enter integers, there will be undefined behavior.
-In print mode (screenshot 2), it prints info about each hand one at a time, showing the starting deck cards, the completed hands, and wins and losses. This is mainly for error checking. Two things to note are: 1) It deals and plays out each hand one at a time with consecutive cards from the deck, starting with the dealer's hand then doing the players' hands in ascending order. This is different than casino play but theoretically doesn't matter and was easier to program. 2) Double down hands are printing to the screen twice.
+In print mode (screenshot 2), it prints info about each hand one at a time, showing the starting deck cards, the completed hands, and wins and losses. This is mainly for error checking. Two things to note: 1) It deals and plays out each hand one at a time with consecutive cards from the deck, starting with the dealer then doing each player in ascending order. This is different than casino play but theoretically doesn't matter and was easier to program. 2) Double down hands are printing to the screen twice.
 To run the sim normally, enter 0 for print mode (screenshot 1)
 # Compilation
 gcc -Wall -std=c99 -O3 -o hg main.c hg.c
