@@ -1,11 +1,12 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "hg.h"
 
 int enter_deck(int* deck)
 {
-    puts("enter the front cards of the deck separated by spaces. enter -1 when done. for ten valued cards, enter 10, for aces enter 1");
-
+    puts("Type the starting cards of the deck separated by spaces (for ten valued cards, type 10, for aces type 1). Type -1 when done and press enter.");
+    printf("deck = ");
     int len = 0;
     while (1)
     {
@@ -265,7 +266,7 @@ double get_banker_results(int* action_arr, int* action_arr_totals, int display, 
 
     }
 
-    if (best_pos == 0)
+    if (best_pos < 2)
         best_pos = -1;
 
     printf("best amount = %d\n", best_pos+1);
@@ -660,7 +661,7 @@ void test_go_player()
         print_arr(result[i], result_lens[i]);
 }
 
-double sim(int sims, int pen, int deck_num, double bj_pay, int* bj_bets, int hand_num, int bank_total_start, int debug)
+double sim(int sims, int pen, int deck_num, double bj_pay, int* bj_bets, int hand_num, int bank_total_start, int debug, int custom_deck)
 {
     int action_arr[64000];
     int action_arr_totals[64000];
@@ -686,8 +687,7 @@ double sim(int sims, int pen, int deck_num, double bj_pay, int* bj_bets, int han
 
     char* outcomes[] = {"wins", "loses", "ties"};
     for (int i = 0; i < sims; ++i) {
-
-        if (debug == 1) {
+        if (debug == 1 && custom_deck == 0) {
             printf("\n *** press enter for new hand *** \n");
             getchar();
         }
@@ -701,7 +701,8 @@ double sim(int sims, int pen, int deck_num, double bj_pay, int* bj_bets, int han
         }
 
         if (debug == 1) {
-            //enter_deck(deck);
+            if (custom_deck == 1)
+                enter_deck(deck);
             printf("deck = ");
             for (int q = 0; q < 30; ++q)
                 printf("%d ", deck[deck_pos[0]+q]);
